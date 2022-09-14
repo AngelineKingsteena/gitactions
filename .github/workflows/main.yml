@@ -30,7 +30,7 @@ jobs:
       strategy:
         matrix:
           server: "${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}"
-      steps:       
+        steps:
         run: |
           mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
