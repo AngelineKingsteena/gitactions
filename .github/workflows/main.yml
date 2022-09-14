@@ -30,7 +30,7 @@ jobs:
     needs: create-first-run
     strategy:
       matrix:
-        server: ${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}
+        server: ${{ fromJson(needs.create-first-run.outputs.deployment-matrix) }}
     steps:
       - uses: actions/checkout@v2
       - name: Run scripts
