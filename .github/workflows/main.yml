@@ -23,27 +23,27 @@ jobs:
             JSON="${JSON//$'\r'/'%0D'}"
             echo "::set-output name=deployment-matrix::$JSON"
      
-    prepare-release-on-servers:
-      name: "${{ matrix.server.name }}: Prepare release"
+  prepare-release-on-servers:
+    name: "${{ matrix.server.name }}: Prepare release"
       # runs-on: ubuntu-latest
-      needs: create-first-run
-      strategy:
-        matrix:
-          server: "${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}"
-        steps:
-        run: |
-          mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-          cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-          tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-        - name: copy file via ssh password
-          uses: appleboy/scp-action@master
-          with:
-            host: ${{ matrix.server.ip }}
-            username: ${{ matrix.server.username }}
-            key: ${{ secrets.SSH_KEY }}
-            port: ${{ matrix.server.port }}
-            source: "deploy.tar"
-            target: "destination/folder"   
+    needs: create-first-run
+    strategy:
+      matrix:
+        server: "${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}"
+    steps:
+      run: |
+        mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+        cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+        tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ matrix.server.ip }}
+          username: ${{ matrix.server.username }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ matrix.server.port }}
+          source: "deploy.tar"
+          target: "destination/folder"   
       
 concurrency:
   group: ci-tests-${{ github.ref }}-1
