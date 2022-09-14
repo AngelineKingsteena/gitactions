@@ -13,6 +13,8 @@ jobs:
   create-first-run:
     name: create-first-run
     runs-on: ubuntu-latest
+    outputs:
+      deployment-matrix: ${{ steps.export-deployment-matrix.outputs.deployment-matrix }}
     steps:
       - uses: actions/checkout@v2
       - name: Export deployment matrix
