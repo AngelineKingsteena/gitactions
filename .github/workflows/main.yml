@@ -33,9 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         run: |
-        mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-        cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-        tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+          mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+          cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+          tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
