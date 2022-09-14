@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run scripts
         run: |
-          echo "hi"
+          echo ${GITHUB_SHA}
           mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
