@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}
-      steps:
+    steps:
       - uses: actions/checkout@v2
       run: |
         mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
