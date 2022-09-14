@@ -32,7 +32,7 @@ jobs:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}
     steps:
       - uses: actions/checkout@v2
-        run: |
+        script: |
           mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
