@@ -48,6 +48,7 @@ jobs:
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ matrix.server.port }}
+          script: whoami
           source: "deploy.tar"
           target: "destination/folder"   
       
