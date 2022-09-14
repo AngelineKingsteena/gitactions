@@ -12,6 +12,7 @@ on:
 jobs:
   create-first-run:
     name: create-first-run
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Export deployment matrix
