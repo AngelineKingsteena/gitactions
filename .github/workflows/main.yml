@@ -55,6 +55,7 @@ jobs:
             git clone AngelineKingsteena/gitactions
             cd gitactions
             python simple.py
+            echo "yolo"
           # source: "deploy.tar"
           # target: "destination/folder"   
       
