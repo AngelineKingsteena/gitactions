@@ -51,11 +51,11 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            sudo mkdir -p /home/admin1/wow
-            cd /home/admin1/wow 
-            sudo git clone https://github.com/AngelineKingsteena/gitactions.git
-            cd gitactions
-            sudo python simple.py
+            # sudo mkdir -p /home/admin1/wow
+            # cd /home/admin1/wow 
+            # sudo git clone https://github.com/AngelineKingsteena/gitactions.git
+            # cd gitactions
+            # sudo python simple.py
             echo "yolo1SS"
           # source: "deploy.tar"
           # target: "destination/folder"   
