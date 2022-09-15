@@ -41,6 +41,7 @@ jobs:
           sudo mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           sudo cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           sudo tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
+          
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
