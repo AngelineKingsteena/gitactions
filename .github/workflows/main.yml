@@ -50,11 +50,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            mkdir -p /home/admin1/wow
+            sudo mkdir -p /home/admin1/wow
             cd /home/admin1/wow 
-            git clone AngelineKingsteena/gitactions
+            sudo git clone https://github.com/AngelineKingsteena/gitactions.git
             cd gitactions
-            python simple.py
+            sudo python simple.py
             echo "yolo1SS"
           # source: "deploy.tar"
           # target: "destination/folder"   
