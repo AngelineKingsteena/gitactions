@@ -49,6 +49,7 @@ jobs:
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
+          script_stop: true
           script: |
             sudo mkdir -p /home/admin1/wow
             cd /home/admin1/wow 
