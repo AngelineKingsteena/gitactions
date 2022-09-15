@@ -47,7 +47,7 @@ jobs:
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
-          key: ${{ secrets.SSH_KEY }}
+          key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8DzJ/zTJdMU+0mmAyzjMEQDZptaxSwtsM/hQkXHUZq gmx\000pmd744@IBM-PF1T565H"
           port: 22
           script_stop: true
           script: |
