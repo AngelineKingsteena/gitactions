@@ -57,7 +57,7 @@ jobs:
             # sudo git clone https://github.com/AngelineKingsteena/gitactions.git
             # cd gitactions
             # sudo python simple.py
-            echo "yolo1SS"
+            echo "yolo1dfdS"
           # source: "deploy.tar"
           # target: "destination/folder"   
       
