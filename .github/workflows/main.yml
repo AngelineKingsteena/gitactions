@@ -50,8 +50,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            mkdir -p /backupdata/wow
-            cd /backupdata/wow 
+            mkdir -p /home/admin1/wow
+            cd /home/admin1/wow 
             git clone AngelineKingsteena/gitactions
             cd gitactions
             python simple.py
