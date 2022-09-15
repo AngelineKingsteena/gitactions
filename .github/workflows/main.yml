@@ -48,8 +48,13 @@ jobs:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
           key: ${{ secrets.SSH_KEY }}
-          port: ${{ matrix.server.port }}
-          script: whoami
+          port: 22
+          script: |
+            mkdir -p /backupdata/wow
+            cd /backupdata/wow 
+            git clone AngelineKingsteena/gitactions
+            cd gitactions
+            python simple.py
           source: "deploy.tar"
           target: "destination/folder"   
       
