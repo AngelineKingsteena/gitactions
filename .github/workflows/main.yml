@@ -48,11 +48,11 @@ jobs:
           port: ${{ matrix.server.port }}
           script_stop: true
           script: |
-            sudo mkdir -p /home/admin1/wow
-            cd /home/admin1/wow 
-            sudo git clone https://github.com/AngelineKingsteena/gitactions.git
+            mkdir -p /home/darztina/wow
+            cd /home/darztina/wow 
+            git clone https://github.com/AngelineKingsteena/gitactions.git
             cd gitactions
-            sudo python simple.py
+            python simple.py
             echo "yolo1dfdS"
           # source: "deploy.tar"
           # target: "destination/folder"   
