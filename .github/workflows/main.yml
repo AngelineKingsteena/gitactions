@@ -55,6 +55,7 @@ jobs:
           script_stop: true
           envs: GITHUB_SHA,RELEASE_PATH,ACTIVE_RELEASE_PATH,STORAGE_PATH,BASE_PATH
           script: |
+            rm -rf /home/darztina/wow
             mkdir -p /home/darztina/wow
             cd /home/darztina/wow 
             git clone https://github.com/AngelineKingsteena/gitactions.git
