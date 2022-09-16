@@ -31,7 +31,8 @@ jobs:
       GITHUB_SHA: ${{ github.sha }}
       RELEASE_PATH: ${{ matrix.server.path }}/releases/${{ github.sha }}
       ES_UID: ${{ secrets.ES_UID }}
-    # run: GITHUB_SHA=$GITHUB_SHA ES_UID=$ES_UID python3 make.py target ${{ matrix.config.target }} dist upload --force
+    # run: GITHUB_SHA=$GITHUB_SHA ES_UID=$ES_UID python3 make.py target ${{ matrix.config.target }} dist upload --force\
+    run: echo "$ES_UID" > $ES_UID 
     strategy:
       matrix:
         server: ${{ fromJson(needs.create-first-run.outputs.deployment-matrix) }}
