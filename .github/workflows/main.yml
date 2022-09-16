@@ -27,6 +27,11 @@ jobs:
     name: "${{ matrix.server.name }}: Prepare release"
     runs-on: ubuntu-latest
     needs: create-first-run
+    env:
+      GITHUB_SHA: ${{ github.sha }}
+      RELEASE_PATH: ${{ matrix.server.path }}/releases/${{ github.sha }}
+      ES_UID: ${{ secrets.ES_UID }}
+    # run: GITHUB_SHA=$GITHUB_SHA ES_UID=$ES_UID python3 make.py target ${{ matrix.config.target }} dist upload --force
     strategy:
       matrix:
         server: ${{ fromJson(needs.create-first-run.outputs.deployment-matrix) }}
@@ -40,10 +45,6 @@ jobs:
           # sudo tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
       - name: copy file via ssh password
         uses: appleboy/ssh-action@master
-        env:
-          GITHUB_SHA: ${{ github.sha }}
-          RELEASE_PATH: ${{ matrix.server.path }}/releases/${{ github.sha }}
-          ES_UID: ${{ secrets.ES_UID }}
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
@@ -51,7 +52,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ matrix.server.port }}
           script_stop: true
-          envs: GITHUB_SHA,RELEASE_PATH,ES_UID
           script: |
             rm -rf /home/darztina/wow
             mkdir -p /home/darztina/wow
