@@ -1,14 +1,11 @@
 name: Deploy Application
-
 on:
   # pull_request:
   push:
     branches: [ master ]
-
 # Allows you to run this workflow manually from the Actions tab
 #  workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-
 jobs:
   create-first-run:
     name: create-first-run
@@ -41,15 +38,14 @@ jobs:
           # sudo mkdir -p "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           # sudo cp -rf . "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
           # sudo tar -cvf deploy.tar "${{ matrix.server.path }}/releases/${GITHUB_SHA}"
-          
       - name: copy file via ssh password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ matrix.server.ip }}
           username: ${{ matrix.server.username }}
-          password: admin1
-          # key: ${{ secrets.SSH_KEY }}
-          port: 22
+          # password: pass
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ matrix.server.port }}
           script_stop: true
           script: |
             # sudo mkdir -p /home/admin1/wow
@@ -60,7 +56,6 @@ jobs:
             echo "yolo1dfdS"
           # source: "deploy.tar"
           # target: "destination/folder"   
-      
 concurrency:
   group: ci-tests-${{ github.ref }}-1
   cancel-in-progress: true
