@@ -1,8 +1,8 @@
 [
   {
     "name": "server-1",
-    "ip": "172.18.16.23",
-    "username": "admin1",
+    "ip": "34.72.218.110",
+    "username": "darztina",
     "port": "22",
     "beforeHooks": "",
     "afterHooks": "",
