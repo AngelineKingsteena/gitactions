@@ -71,7 +71,8 @@ jobs:
         with: 
           python-version: '3.x'
         run: |  
-          pwd        
+          pwd  
+          ls          
           python3 simple.py
         env:
           ES_UID: ${{ secrets.ES_UID }}
