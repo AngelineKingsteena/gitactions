@@ -64,20 +64,16 @@ jobs:
             # python3 simple.py  
           # env:
             # ES_UID: ${{ secrets.ES_UID }}
-  new_job:
-    name: RUN PYTHON
+  build: 
     runs-on: ubuntu-latest
-    steps:
-      -uses: actions/checkout@v2
-      -uses: actions/setup-python@v2
-      -with: 
-        python-version: '3.x'
-      -run: |  
-        pwd  
-        ls          
-        python3 simple.py
-      env:
-        ES_UID: ${{ secrets.ES_UID }}
+    steps: 
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with: 
+          python-version: '3.x'
+      - run: pwd;ls;python3 simple.py;
+        env: 
+          ES_UID: ${{ secrets.ES_UID }}
                    
           # source: "deploy.tar"
           # target: "destination/folder"   
