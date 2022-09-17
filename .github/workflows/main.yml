@@ -59,7 +59,7 @@ jobs:
             cd /home/darztina/wow 
             git clone https://github.com/AngelineKingsteena/gitactions.git
             mkdir -p "/home/darztina/wow/releases/${GITHUB_SHA}"
-            echo "$ES_UID" > $ES_UID 
+            # echo "$ES_UID" > $ES_UID 
             # cd  /home/darztina/wow/gitactions ; 
             # python3 simple.py  
           # env:
