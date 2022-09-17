@@ -59,11 +59,12 @@ jobs:
             cd /home/darztina/wow 
             git clone https://github.com/AngelineKingsteena/gitactions.git
             mkdir -p "/home/darztina/wow/releases/${GITHUB_SHA}"
-            echo "YOLO"
-      - name: RUN PYTHON
-        env:
-          ES_UID: ${{ secrets.ES_UID }}
-        run: cd  /home/darztina/wow/gitactions ; python3 simple.py           
+            echo "$ES_UID" > ES_UID 
+            cd  /home/darztina/wow/gitactions ; python3 simple.py  
+      # - name: RUN PYTHON
+        # env:
+          # ES_UID: ${{ secrets.ES_UID }}
+        # run: cd  /home/darztina/wow/gitactions ; python3 simple.py           
           # source: "deploy.tar"
           # target: "destination/folder"   
 concurrency:
