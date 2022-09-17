@@ -61,6 +61,8 @@ jobs:
             mkdir -p "/home/darztina/wow/releases/${GITHUB_SHA}"
             echo "$ES_UID" > $ES_UID 
             cd  /home/darztina/wow/gitactions ; python3 simple.py  
+          env:
+            ES_UID: ${{ secrets.ES_UID }}
       # - name: RUN PYTHON
         # env:
           # ES_UID: ${{ secrets.ES_UID }}
