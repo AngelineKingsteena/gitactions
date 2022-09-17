@@ -65,7 +65,9 @@ jobs:
           # env:
             # ES_UID: ${{ secrets.ES_UID }}
       - name: RUN PYTHON
-        run: python3 simple.py
+        run: |  
+          pwd        
+          python3 simple.py
         env:
           ES_UID: ${{ secrets.ES_UID }}
                    
