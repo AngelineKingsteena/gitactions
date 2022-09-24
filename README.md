@@ -23,6 +23,7 @@ vim authorized_keys #if vim is not present, you can use other editors or install
 copy the content and quit (shift+colon> wq -> enter)
 
 chmod 600 authorized_keys
+chmod 700 .ssh
 
 We need to edit the following fields in the file /etc/ssh/sshd_config on the server (say using vim):
 
@@ -48,3 +49,10 @@ Install and run it using the following commands (Ubuntu/Debian):
 `sudo ufw enable`
 
 `sudo ufw status verbose` #this should show what the firewall is doing
+
+==================================
+
+Checking if remote ssh is working fine.
+1. Create a .ppk file of the private key in your local server using putty gen.
+2. Open putty and type the external ip and add username in data and in ssh>auth> provide the .ppk file and click open..
+3. If everything is fine ,the login must be succesful
